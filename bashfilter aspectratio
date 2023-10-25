@@ -1,0 +1,14 @@
+cd ~/Downloads
+mkdir -p Square Portrait Landscape
+
+for file in *.jpg *.png; do
+    width=$(sips -g pixelWidth "$file" | awk '/pixelWidth/ {print $2}')
+    height=$(sips -g pixelHeight "$file" | awk '/pixelHeight/ {print $2}')
+    if (( width > height )); then
+        mv "$file" Landscape/
+    elif (( width < height )); then
+        mv "$file" Portrait/
+    else
+        mv "$file" Square/
+    fi
+done
