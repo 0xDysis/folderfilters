@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Set the source and destination directories
+source_dir="$HOME/Desktop"
+destination_dir="$HOME/Downloads"
+
+# Move all files and folders from the source directory to the destination directory
+mv "$source_dir"/* "$destination_dir"
+
+echo "Files moved successfully!"
